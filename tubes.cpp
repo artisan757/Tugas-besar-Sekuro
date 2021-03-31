@@ -13,7 +13,7 @@
 using namespace std;
 
 // procedure visualisasi peta 20 x 20
-char visualize (int a, int b, int c, int d){
+void visualize (int a, int b, int c, int d){
     int i; int j;
     int xrob = a; int yrob = 20-b;
     int xkec = c; int ykec = 20-d;
@@ -36,7 +36,7 @@ char visualize (int a, int b, int c, int d){
     }}
 
 //fungsi cek posisi robot pada batasan peta
-int checkposition(int a, int b)
+bool checkposition(int a, int b)
 {
     //parameter input: a (XR), b(YR)
     if (a<0 || b<0 || a>20 || b>20)
@@ -49,8 +49,8 @@ int checkposition(int a, int b)
     }
 }
 
-// proceduremenunjukkan posisi robot dan kecoak sekarang
-int showposition(int a, int b, int c, int d)
+// procedure menunjukkan posisi robot dan kecoak sekarang
+void showposition(int a, int b, int c, int d)
 //parameter input: a(XR), b(YR), c(XK), d(YK)
 {
     cout << "XR = " << a << ", YR = " << b <<endl;
