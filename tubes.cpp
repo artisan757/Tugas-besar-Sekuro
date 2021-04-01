@@ -323,7 +323,14 @@ int main (){ //Spawn Kecoa Random
                 cout << "\n\n\n\n\n\n\n\n\n\n\nRobot berhasil menyerang kecoak" << endl;
                 changevalue(&K1.hpk, dmgr);
                 cout << "Darah kecoak sekarang sebanyak " ;
-                cout << K1.hpk << endl;
+                if (K1.hpk > 0)
+                {
+                    cout << K1.hpk << endl;
+                }
+                else // K1.hpk <= 0
+                {
+                    cout << 0 << endl;
+                }
                 }
                 else // cekjarak(dvxr,dvyr,dvxk,dvyk,rad) == false
                 {
@@ -433,7 +440,7 @@ int main (){ //Spawn Kecoa Random
             Sleep(1500);
         }
     }
-    cout << "\n\n\n\n\n\n\n\n\n\n\nRobot telah hancur."<<endl;
+    cout << "\n\n\n\n\n\n\n\n\n\n\nRobot telah hancur. Connection Terminated"<<endl;
     cout << "Destroyed = " << R1.score << endl;
     Sleep(1500);
 return 0;
