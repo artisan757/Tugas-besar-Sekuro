@@ -53,6 +53,11 @@ void changevalue(int *a, int val)
     *a += val; // changing by dereferencing the memory address
 }
 
+void changerad(double *a, double val)
+{
+    *a = val;
+}
+
 // procedure visualisasi peta 20 x 20
 void visualize (int a, int b, int c, int d){
     int i; int j;
@@ -228,7 +233,7 @@ int main (){ //Spawn Kecoa Random
             cout << "'O' adalah Robot dan 'X' adalah Kecoa" << endl;
             showstatus(R1.xr,R1.yr, K1.xk, K1.yk, R1.hpr, K1.hpk, R1.score);
             cout << "\nMasukkan Perintah: " << endl;
-            cout << "(1) Untuk bergerak ; (2) Untuk menembak ; (3) Untuk Keluar" << endl;
+            cout << "(1) Untuk bergerak ; (2) Untuk menembak ; (3) Untuk mengganti senjata ; (4) Untuk keluar" << endl;
             pilihan = getch(); // keyboard input
             if (pilihan == 49){ // ASCII decimal 49 == '1'
                 system("cls");
