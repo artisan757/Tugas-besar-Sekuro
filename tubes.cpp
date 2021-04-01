@@ -1,3 +1,4 @@
+
 //PROGRAM KECOAK DESTROYER TUGAS BESAR SEKURO
 //16520373-Farrel Ahmad
 //16720470-Rizky Anggian Matondang
@@ -204,6 +205,10 @@ int main (){ //Spawn Kecoa Random
     dmgr = -5 ;
 
     //ALGORITMA PROGRAM UTAMA
+    cout << "----------------------------------------------------------" << endl;
+    cout << "              Selamat Datang Pejuang" << endl;
+    cout << "   Cobalah Tetap Hidup Dengan Membunuh Para Kecoa" << endl;
+    cout << "----------------------------------------------------------" << endl;
     while(R1.hpr>0)
     {Kecoak K1;
      dvxk = (1.0 * K1.xk); //xk converted to double
@@ -215,11 +220,12 @@ int main (){ //Spawn Kecoa Random
             dvxr = (1.0*R1.xr);
             dvyr = (1.0*R1.yr);
             visualize(R1.xr,R1.yr, K1.xk, K1.yk);
-            cout << "'O' adalah Robot dan 'X' adalah Kecoak" << endl;
+            cout << "'O' adalah Robot dan 'X' adalah Kecoa" << endl;
             showstatus(R1.xr,R1.yr, K1.xk, K1.yk, R1.hpr, K1.hpk, R1.score);
             cout << "\nMasukkan Perintah: " << endl;
             cout << "(1) Untuk bergerak" << endl;
             cout << "(2) Untuk menembak" << endl;
+            cout << "(3) Untuk Keluar" << endl;
             pilihan = getch(); // keyboard input
             if (pilihan == 49){ // ASCII decimal 49 == '1'
                 system("cls");
@@ -246,7 +252,7 @@ int main (){ //Spawn Kecoa Random
                                 }
                                 else
                                 {
-                                    cout <<"Awas nabrak kecoak!"<<endl; Sleep(600); break;
+                                    cout <<"Awas nabrak kecoa!"<<endl; Sleep(600); break;
                                 }
                             case 80 : // down (224,80)
                                 if (checkposition(R1.xr,R1.yr-1, K1.xk, K1.yk)==3) //gerakan diperobolehkan
@@ -288,7 +294,7 @@ int main (){ //Spawn Kecoa Random
                                 }
                                 else
                                 {
-                                    cout <<"Awas nabrak kecoak!"<<endl; Sleep(600); break;
+                                    cout <<"Awas nabrak kecoa!"<<endl; Sleep(600); break;
                                 }
                         }}
                     else if (ch == 115) //nomor input keyboard 115 adalah huruf 's'
@@ -318,6 +324,14 @@ int main (){ //Spawn Kecoa Random
                 Sleep(1150);
                 system("cls");
             }
+            else if (pilihan == 51){ //Program user memilih untuk keluar
+                cout << "\n" ;
+                cout << "Anda memilih untuk keluar" << endl;
+                cout << "Destroyed = " << R1.score << endl;
+                cout << "Selamat tinggal" << endl;
+                exit(0);
+
+            }
             else // salah input pilihan
             {
                 cout << "pilihan salah"<< endl;
@@ -330,7 +344,7 @@ int main (){ //Spawn Kecoa Random
             dvyr = (1.0*R1.yr);
             if (cekjarak(dvxr,dvyr,dvxk,dvyk,K1.rad)) //kesempatan kecoak menyerang atau jalan
             {
-                cout << "\n\n\n\n\n\n\n\n\n\n\nKecoak berhasil menembak robot" << endl;
+                cout << "\n\n\n\n\n\n\n\n\n\n\nKecoa berhasil menembak robot" << endl;
                 changevalue(&R1.hpr, dmgk);
                 cout << "Darah robot sekarang sebanyak ";
                 cout << R1.hpr<<endl;
