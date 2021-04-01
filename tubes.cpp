@@ -255,7 +255,7 @@ int main (){ //Spawn Kecoa Random
                                 }
                                 else
                                 {
-                                    cout <<"Awas nabrak kecoak!"<<endl; Sleep(600); break;
+                                    cout <<"Awas nabrak kecoa!"<<endl; Sleep(600); break;
                                 }
                             case 80 : // down (224,80)
                                 if (checkposition(R1.xr,R1.yr-1, K1.xk, K1.yk)==3) //gerakan diperobolehkan
@@ -297,7 +297,7 @@ int main (){ //Spawn Kecoa Random
                                 }
                                 else
                                 {
-                                    cout <<"Awas nabrak kecoak!"<<endl; Sleep(600); break;
+                                    cout <<"Awas nabrak kecoa!"<<endl; Sleep(600); break;
                                 }
                         }}
                     else if (ch == 115) //nomor input keyboard 115 adalah huruf 's'
@@ -332,6 +332,7 @@ int main (){ //Spawn Kecoa Random
                 cout << "Shutting down..." << endl;
                 cout << "Destroyed = " << R1.score << endl;
                 cout << "Program Terminated" << endl;
+
                 exit(0);
 
             }
