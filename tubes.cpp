@@ -327,7 +327,61 @@ int main (){ //Spawn Kecoa Random
                 Sleep(1150);
                 system("cls");
             }
-            else if (pilihan == 51){ //Program user memilih untuk keluar
+            else if (pilihan == 51)
+            {
+                cout << "\nPilihan senjata: " << endl;
+                cout << "(1) Boomerang" << endl;
+                cout << "\tDamage: 8" << "\tRange: 2" << endl;
+                cout << "(2) Laser Beam" << endl;
+                cout << "\tDamage: 3" << "\tRange: 10" << endl;
+                cout << "(3) Mine" << endl;
+                cout << "\tDamage: 1" << "\tRange: 15" << endl;
+                cout << "(4) Normal Handgun" << endl;
+                cout << "\tDamage: 5" << "\tRange: 5" << endl;
+                pilihan = getch();
+
+                if (pilihan == 49)
+                {
+                    system("cls");
+                    double newrad;
+                    newrad = 2.0;
+                    dmgr = -8;
+                    changerad(&R1.rad, newrad);
+                    Sleep(1000);
+                    system("cls");
+                }
+                else if (pilihan == 50)
+                {
+                    system("cls");
+                    double newrad;
+                    newrad = 10.0;
+                    dmgr = -3;
+                    changerad(&R1.rad, newrad);
+                    Sleep(1000);
+                    system("cls");
+                }
+                else if (pilihan == 51)
+                {
+                    system("cls");
+                    double newrad;
+                    newrad = 15.0;
+                    dmgr = -1;
+                    changerad(&R1.rad, newrad);
+                    Sleep(1000);
+                    system("cls");
+                }
+                else if (pilihan == 52)
+                {
+                    system("cls");
+                    double newrad;
+                    newrad = 5.0;
+                    dmgr = -5;
+                    changerad(&R1.rad, newrad);
+                    Sleep(1000);
+                    system("cls");
+                }
+            }
+            else if (pilihan == 52){ //Program user memilih untuk keluar
                 cout << "\n" ;
                 cout << "Shutting down..." << endl;
                 cout << "Destroyed = " << R1.score << endl;
@@ -370,6 +424,8 @@ int main (){ //Spawn Kecoa Random
     if (K1.hpk <= 0)
         {
             R1.score+=1;
+            cout << "Congratulations! You Destroyed " << R1.score << " Kecoak"<< endl;
+            Sleep(1500);
         }
     }
     cout << "\n\n\n\n\n\n\n\n\n\n\nRobot telah hancur."<<endl;
