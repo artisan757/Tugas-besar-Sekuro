@@ -1,8 +1,11 @@
-
 //PROGRAM KECOAK DESTROYER TUGAS BESAR SEKURO
-//16520373-Farrel Ahmad
-//16720470-Rizky Anggian Matondang
-//16520222-Farrel Jonathan Vickeldo
+//16520222 - Farrel Jonathan Vickeldo
+//16520373 - Farrel Ahmad
+//16720470 - Rizky Anggian Matondang
+
+//Deskripsi :
+/*Menerima masukan keyboard untuk menyerang kecoak hingga robot/program
+berhenti akibat darah robot habis atau dihentikan oleh pengguna*/
 
 #include <iostream>
 #include <cmath>
@@ -12,6 +15,7 @@
 #include <cstdlib>
 #include <conio.h>
 #include <windows.h>
+
 using namespace std;
 
 //class robot
@@ -50,12 +54,12 @@ class Kecoak
 //pointer function to change value
 void changevalue(int *a, int val)
 {
-    *a += val; // changing by dereferencing the memory address
+    *a += val; // changing by dereferencing the memory address for int data type
 }
 
 void changerad(double *a, double val)
 {
-    *a = val;
+    *a = val; // changing by dereferencing the memory address for double data type (used in rad (weapon radius))
 }
 
 // procedure visualisasi peta 20 x 20
@@ -63,19 +67,19 @@ void visualize (int a, int b, int c, int d){
     int i; int j;
     int xrob = a; int yrob = 20-b;
     int xkec = c; int ykec = 20-d;
-    for (i=0;i<=20;i++){
+    for (i=0;i<=20;i++){        // peta 20 x 20 atau dari koordinat (0,0) hingga (20,20)
         for (j=0;j<=20;j++){
             if ((i==yrob) && (j==xrob))
                 {
-                cout << " O ";
+                cout << " O ";  //marker posisi robot
                 }
             else if ((i==ykec) && (j==xkec))
                 {
-                    cout << " X ";
+                    cout << " X "; //marker posisi kecoak
                 }
             else
                 {
-                    cout << " . ";
+                    cout << " . "; //marker titik kosong
                 }
         }
     cout <<endl;
@@ -99,10 +103,14 @@ int checkposition(int a, int b, int c, int d)
 }
 
 // procedure menunjukkan posisi robot dan kecoak sekarang
-void showstatus(int a, int b, int c, int d, int e, int f, int g)
-    //parameter input: a(XR), b(YR), c(XK), d(YK), e(hpr), f(hpk), g(score robot)
+void showstatus(int a, int b, int c, int d, int e, int f, int g, double r)
 {
-    cout << "XR = " << a << ", YR = " << b << ", HP Robot = " << e << ", Destroyed = " << g << endl;
+    //parameter input: a(XR), b(YR), c(XK), d(YK), e(hpr), f(hpk), g(score robot)
+    cout << "XR = " << a << ", YR = " << b << ", HP Robot = " << e << ", Destroyed = " << g <<", Selected Weapon = ";
+    if (r==2.0){cout<<"Boomerang"<<endl;}
+    else if (r==10.0){cout<<"Laser Beam"<<endl;}
+    else if (r==15.0) {cout<<"Mine"<<endl;}
+    else if (r==5.0) {cout<<"Normal Handgun"<<endl;}
     cout << "XK = " << c << ", YK = " << d << ", HP Kecoak = " << f <<endl;
     cout << "DeltaX = " << abs(a-c) <<", DeltaY = " << abs(b-d) << endl;
 }
@@ -230,8 +238,8 @@ int main (){ //Spawn Kecoa Random
             dvxr = (1.0*R1.xr);
             dvyr = (1.0*R1.yr);
             visualize(R1.xr,R1.yr, K1.xk, K1.yk);
-            cout << "'O' adalah Robot dan 'X' adalah Kecoa" << endl;
-            showstatus(R1.xr,R1.yr, K1.xk, K1.yk, R1.hpr, K1.hpk, R1.score);
+            cout << "'O' adalah Robot dan 'X' adalah Kecoak" << endl;
+            showstatus(R1.xr,R1.yr, K1.xk, K1.yk, R1.hpr, K1.hpk, R1.score, R1.rad);
             cout << "\nMasukkan Perintah: " << endl;
             cout << "(1) Untuk bergerak ; (2) Untuk menembak ; (3) Untuk mengganti senjata ; (4) Untuk keluar" << endl;
             pilihan = getch(); // keyboard input
@@ -241,7 +249,7 @@ int main (){ //Spawn Kecoa Random
                 while (flag)
                 {
                     visualize(R1.xr,R1.yr, K1.xk, K1.yk);
-                    showstatus(R1.xr,R1.yr, K1.xk, K1.yk, R1.hpr, K1.hpk, R1.score);
+                    showstatus(R1.xr,R1.yr, K1.xk, K1.yk, R1.hpr, K1.hpk, R1.score, R1.rad);
                     cout << "Use arrow keys to move and press 'S' on keyboard to stop" << endl;
                     int ch = getch();
                     if (ch == 224){  //arrow key input
@@ -260,7 +268,7 @@ int main (){ //Spawn Kecoa Random
                                 }
                                 else
                                 {
-                                    cout <<"Awas nabrak kecoa!"<<endl; Sleep(600); break;
+                                    cout <<"Awas nabrak kecoak!"<<endl; Sleep(600); break;
                                 }
                             case 80 : // down (224,80)
                                 if (checkposition(R1.xr,R1.yr-1, K1.xk, K1.yk)==3) //gerakan diperobolehkan
@@ -302,7 +310,7 @@ int main (){ //Spawn Kecoa Random
                                 }
                                 else
                                 {
-                                    cout <<"Awas nabrak kecoa!"<<endl; Sleep(600); break;
+                                    cout <<"Awas nabrak kecoak!"<<endl; Sleep(600); break;
                                 }
                         }}
                     else if (ch == 115) //nomor input keyboard 115 adalah huruf 's'
@@ -351,7 +359,7 @@ int main (){ //Spawn Kecoa Random
                 cout << "(4) Normal Handgun" << endl;
                 cout << "\tDamage: 5" << "\tRange: 5" << endl;
                 pilihan = getch();
-
+                //mengganti radius dan damage
                 if (pilihan == 49)
                 {
                     system("cls");
@@ -435,12 +443,14 @@ int main (){ //Spawn Kecoa Random
         }
     if (K1.hpk <= 0)
         {
+            system("cls");
             R1.score+=1;
-            cout << "Congratulations! You Destroyed " << R1.score << " Kecoak"<< endl;
-            Sleep(1500);
+            cout << "\n\n\n\n\n\n\n\n\n\n\nCongratulations! You Destroyed " << R1.score << " Kecoak"<< endl;
+            Sleep(2000);
+            system("cls");
         }
     }
-    cout << "\n\n\n\n\n\n\n\n\n\n\nRobot telah hancur. Connection Terminated"<<endl;
+    cout << "\n\n\n\n\n\n\n\n\n\n\nRobot telah hancur. Connection terminated."<<endl;
     cout << "Destroyed = " << R1.score << endl;
     Sleep(1500);
 return 0;
